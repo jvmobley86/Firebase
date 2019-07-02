@@ -22,8 +22,17 @@ $('.form').on('submit', function (event) {
     var frequency;
     var firstTimeConverted = moment(nt, "HH:mm").subtract(1,"years");
     console.log(firstTimeConverted)
-    var currentTime=moment();
+
+    var currentTime = moment();
     console.log("Current Time: " + currentTime.format("HH.mm"))
+
+    var timeDifference = (currentTime - firstTimeConverted);
+    var remainder = timeDifference % freq;
+    var minsAway = (freq-remainder);
+    console.log("Time till next train: " + minsAway);
+
+    // var nextTrainTime = moment().add(timeTillNext, "minutes");
+    // console.log("Arrival Time: " + minsA.format("HH:mm"));
 
 
     //validation
@@ -57,12 +66,19 @@ $('.form').on('submit', function (event) {
         dest: destination,
         next: nextTrain,
         mins: frequency,
+        minsA: minsAway,
     })
 
     $("input[name=train-name]").val('');
     $("input[name=destination]").val('');
     $("input[name=next-train]").val('');
     $("input[name=frequency]").val('');
+
+    database.ref("/trains").push({
+        
+    }
+
+    )
 });
 
 database.ref('/trains').on('child_added', function (response) {
@@ -70,7 +86,7 @@ database.ref('/trains').on('child_added', function (response) {
     var des = $('<div>').addClass('column').text(response.val().dest);
     var trainTime = $('<div>').addClass('column').text(response.val().mins);
     var minutes = $('<div>').addClass('column').text(response.val().next);
-    var minsA = $('<div>').addClass('column').text('');
+    var minsA = $('<div>').addClass('column').text(response.val().minsA);
 
     $('#trainTimes').append(trainN, des, trainTime, minutes, minsA);
 })
