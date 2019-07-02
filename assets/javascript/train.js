@@ -20,6 +20,11 @@ $('.form').on('submit', function (event) {
     var destination;
     var nextTrain;
     var frequency;
+    var firstTimeConverted = moment(nt, "HH:mm").subtract(1,"years");
+    console.log(firstTimeConverted)
+    var currentTime=moment();
+    console.log("Current Time: " + currentTime.format("HH.mm"))
+
 
     //validation
     if ($("input[name=train-name]").val().length == '') {
