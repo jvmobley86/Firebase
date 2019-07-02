@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Train Schedule </title>
+    <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS-master/semantic.min.css">
+    <!-- Added Moment JS -->
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+</head>
+
+<body>
+    <div class="ui container">
+        <hr>
+        <br>
+        <h1 class="ui center aligned header">
+            <i class="subway icon"></i>Chicago Transit Authority
+
+        </h1>
+
+        <div class="ui red  segment">
+            <h2 class="ui header">Red Line</h2>
+            <div class="ui divider"></div>
+            <div class="ui two column grid">
+                <div class="five column row">
+                    <div class="column">
+                        <h3 class="ui header">Train Name</h3>
+                    </div>
+                    <div class="column">
+                        <h3 class="ui header">Train Destination</h3>
+                    </div>
+                    <div class="column">
+                        <h3 class="ui header">Train Frequency (min)</h3>
+                    </div>
+                    <div class="column">
+                        <h3 class="ui header">Next Arrival</h3>
+                    </div>
+                    <div class="column">
+                        <h3 class="ui header">Minutes Away</h3>
+                    </div>
+                </div>
+                <div id="trainTimes" class="five column row">
+
+                </div>
+            </div>
+
+        </div>
+        <div class="ui blue segment">
+            <form class="ui form">
+                <div class="field">
+                    <label>Train Name</label>
+                    <input type="text" name="train-name" placeholder="Ex. Red Line">
+                </div>
+                <div class="field">
+                    <label>Destination</label>
+                    <input type="text" name="destination" placeholder="Hyde Park">
+                </div>
+                <div class="field">
+                    <label>Next Train Time (HH:mm military time)</label>
+                    <input type="text" name="next-train" placeholder="Ex. 12:00">
+                </div>
+                <div class="field">
+                    <label>Frequency (min)</label>
+                    <input type="text" name="frequency" placeholder="5">
+                </div>
+
+                <button class="ui button" type="submit">Submit</button>
+            </form>
+
+        </div>
+
+
+
+    </div>
+
+
+
+    <!--Scripts-->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.2/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="Semantic-UI-CSS-master/semantic.min.js"></script>
+
+    <script src="assets/javascript/train.js"></script>
+</body>
+
+</html>
